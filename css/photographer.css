@@ -1,0 +1,131 @@
+#main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#photographHeaderSection {
+    margin-bottom: 30px;
+}
+
+.photograph_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fafafa;
+    height: 313px;
+    border-radius: 5px;
+}
+
+.photograph-info {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 30%;
+}
+
+.photograph_media {
+    width: 32%;
+}
+
+.photograph-name h1 {
+    display: flex;
+    color: #D3573C;
+    margin: 15px 15px 15px 0;
+}
+
+.photograph-txt h2 {
+    color: #901C1C;
+    margin: 0;
+}
+
+.photograph-txt p {
+    margin-bottom: 15px;
+}
+
+.photographer_portrait img {
+    margin-right: 50px;
+    height: 200px;
+    width: 200px;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+.photograph_column-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 30%;
+}
+
+.photograph_column-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 30%;
+}
+
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#photographMediasSection {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.photograph_media_picture, .photograph_media_picture img, .photograph_media_movie, .photograph_media_all {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.photograph_media_infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.photograph_media_title, .photograph_media_title h3 {
+    display: flex;
+    justify-content: left;
+    font-size: 24px;
+    color: #901C1C;
+}
+
+.photograph_media_likes, .photograph_media_likes p .photograph_media_likes i {
+    display: flex;
+    justify-content: right;
+    font-size: 24px;
+    align-self: center;
+    color: #901C1C;
+}
+
+.photograph_media_price {
+    display: none;
+}
+
+main .photograph_media_likes i{
+    cursor: pointer;
+}
+
+.--liked{
+    color: #DB8876;
+}

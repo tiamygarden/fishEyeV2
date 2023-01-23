@@ -1,0 +1,100 @@
+.labelizeDiv{
+    display: flex;
+    font-size: 24px;
+    margin-bottom: -150px;
+}
+
+.labelizeDiv p {
+    padding-right: 5px;
+}
+
+.mediasOrderByPlaceholder {
+    display: block;
+    border-radius: 0.5rem;
+    width: min-content;
+}
+
+.mediasOrderBy {
+    background: #901C1C;
+    padding: 1rem;
+    color: white;
+    display: inline-flex;
+    border-radius: .5rem;
+    position: relative;
+    width: 170px;
+}
+
+.mediasOrderBy:hover .mediasOrderBy__Options,
+.mediasOrderBy:focus .mediasOrderBy__Options {
+    display: block;
+}
+
+ul.mediasOrderBy__Options {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 30px;
+    left: 0;
+    right: 0;
+    list-style: none;
+    padding: 10px;
+    border-radius: 0 0 .5rem .5rem;
+    background: #901C1C;
+    overflow: hidden;
+}
+
+.mediasOrderBy__Options li {
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    border-top: 1px solid #fff;
+    margin: 0 10px;
+}
+
+.mediasOrderBy__Options li:hover {
+    background: #761414;
+}
+
+.mediasOrderBy__Current {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+.mediasOrderBy__Current:after {
+    content: url('data:image/svg+xml, <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white"/></svg>');
+    right: 10px;
+    position: absolute;
+    transform: rotate(180deg);
+    transition: 300ms;
+}
+
+.mediasOrderBy:hover .mediasOrderBy__Current:after {
+    transform: rotate(0deg);
+}
+
+.sort--hidden{
+    display: flex;
+    font-size: 0;
+    width: 202px;
+    height: 63px;
+    background-color: inherit;
+    padding: 0;
+    /* position: relative; */
+    /* right: 202px; */
+    top: -63px;
+    z-index: -100;
+}
+
+.sort--hidden:focus-visible, .sort--hidden:focus-within, .sort--hidden:hover{
+    background: #901C1C;
+    padding: 1rem;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    border-radius: .5rem;
+    position: relative;
+    width: 170px;
+    height: fit-content;
+    z-index: 100;
+}
