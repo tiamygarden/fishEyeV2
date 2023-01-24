@@ -1,12 +1,19 @@
 export default class MediaCardVideo {
+    _wrapper;
+
     constructor(media) {
         this._media = media;
+
+        this._wrapper = document.createElement('article');
+        this._wrapper.classList.add('photograph_media');
+    }
+
+    handleLikeButton() {
+        // TODO
     }
 
     get dom() {
-        const el = document.createElement('article');
-        el.classList.add('photograph_media');
-        el.innerHTML = `
+        this._wrapper.innerHTML = `
             <video class="photograph_media_movie photograph_media_all lightbox" src="${this._media.video}" title="${this._media.title}" aria-label="${this._media.title}" tabindex="0">
                 <source class="photograph_media_all" src="${this._media.video}" type="video/mp4" tabindex="0">
             </video>
@@ -25,6 +32,6 @@ export default class MediaCardVideo {
                 </div>
             </div>
              `;
-        return el;
+        return this._wrapper;
     }
 }

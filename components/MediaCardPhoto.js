@@ -1,12 +1,19 @@
 export default class MediaCardPhoto {
+    _wrapper;
+
     constructor(media) {
         this._media = media;
+
+        this._wrapper = document.createElement('article');
+        this._wrapper.classList.add('photograph_media');
+    }
+
+    handleLikeButton() {
+
     }
 
     get dom() {
-        const el = document.createElement('article');
-        el.classList.add('photograph_media');
-        el.innerHTML = `
+        this._wrapper.innerHTML = `
             <div class="photograph_media_picture photograph_media_all">
                 <img src="${this._media.image}" alt="${this._media.title}" class="lightbox" tabindex="0"/>
             </div>
@@ -25,6 +32,6 @@ export default class MediaCardPhoto {
                 </div>
             </div>
              `;
-        return el;
+        return this._wrapper;
     }
 }
