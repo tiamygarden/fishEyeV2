@@ -4,7 +4,7 @@ export default class PhotographerCard {
             id,
             name: name, // default notation
             city, // short notation
-            portrait : `/assets/photographers/portraits/${portrait}`,
+            portrait : `./assets/photographers/portraits/${portrait}`,
             country,
             tagline,
             price,

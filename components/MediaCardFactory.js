@@ -6,20 +6,16 @@ export default class MediaCardFactory {
         const media = {
             likes,
             title,
+            image: `./assets/photographers/medias/${photographerId}/${image}`,
+            video: `./assets/photographers/medias/${photographerId}/${video}`,
         };
 
         if (image) {
-            return new MediaCardPhoto({
-                ...media,
-                image: `/assets/photographers/medias/${photographerId}/${image}`,
-            });
+            return new MediaCardPhoto(media);
         }
 
         if (video) {
-            return new MediaCardVideo({
-                ...media,
-                video: `/assets/photographers/medias/${photographerId}/${video}`,
-            });
+            return new MediaCardVideo(media);
         }
     }
 }

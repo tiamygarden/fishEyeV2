@@ -1,13 +1,14 @@
 import { Api } from '../api/Api.js';
 import MediaCardFactory from '../components/MediaCardFactory.js';
+import PhotographerHeader from '../components/PhotographerHeader.js';
 
 class App {
-    #headerWrapper;
-    #mediasWrapper;
+    _headerWrapper;
+    _mediasWrapper;
 
     constructor() {
-        this.#headerWrapper = document.getElementById('photographHeaderSection');
-        this.#mediasWrapper = document.getElementById('photographMediasSection');
+        this._headerWrapper = document.getElementById('photographHeaderSection');
+        this._mediasWrapper = document.getElementById('photographMediasSection');
     }
 
     async main() {
@@ -15,10 +16,11 @@ class App {
         const medias = await new Api().getMediasForPhotographer(photographerId);
         let photographer = await new Api().getPhotographerById(photographerId);
 
-        console.log(photographer)
+        // Insère le composant PhotograhperHeader dans son emplacement
+        this._headerWrapper.appendChild(new PhotographerHeader(photographer).dom)
 
         medias.forEach(media => {
-            this.#mediasWrapper.appendChild(new MediaCardFactory(media).dom);
+            this._mediasWrapper.appendChild(new MediaCardFactory(media).dom);
         });
     }
 }

@@ -1,7 +1,7 @@
 export class Api {
-    #isFetched = false;
-    #photographers = [];
-    #medias = [];
+    _isFetched = false;
+    _photographers = [];
+    _medias = [];
 
     // Singleton constructor
     constructor() {
@@ -14,36 +14,36 @@ export class Api {
     }
 
     async get() {
-        if (this.#isFetched) return;
+        if (this._isFetched) return;
 
-        const data = await fetch('../data/photographers.json')
+        const data = await fetch('./data/photographers.json')
             .then(res => res.json())
             .catch(err => console.error('an error occurs', err));
 
-        this.#photographers = data.photographers;
-        this.#medias = data.medias;
+        this._photographers = data.photographers;
+        this._medias = data.medias;
 
-        this.#isFetched = true;
+        this._isFetched = true;
     }
 
     async getPhotographers() {
         await this.get();
 
-        return this.#photographers;
+        return this._photographers;
     }
 
     async getPhotographerById(id) {
         await this.get();
         id = parseInt(id);
 
-        return this.#photographers.find(photographer => photographer.id === id);
+        return this._photographers.find(photographer => photographer.id === id);
     }
 
     async getMediasForPhotographer(id) {
         await this.get();
         id = parseInt(id);
 
-        return this.#medias.filter(media => {
+        return this._medias.filter(media => {
             return media.photographerId === id;
         });
     }

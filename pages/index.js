@@ -6,17 +6,17 @@ class App {
      * variable contenant le wrapper
      * dans lequel est injectée la liste des cards des photographes
      */
-    #wrapper;
+    _wrapper;
 
     constructor() {
-        this.#wrapper = document.getElementById('photographer_section');
+        this._wrapper = document.getElementById('photographer_section');
     }
 
     async main() {
         const photographers = await new Api().getPhotographers();
 
         photographers.forEach(photographer => {
-            this.#wrapper.appendChild(new PhotographerCard(photographer).dom);
+            this._wrapper.appendChild(new PhotographerCard(photographer).dom);
         });
     }
 }
