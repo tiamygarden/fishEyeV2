@@ -1,7 +1,6 @@
 .labelizeDiv{
     display: flex;
     font-size: 24px;
-    margin-bottom: -150px;
 }
 
 .labelizeDiv p {
