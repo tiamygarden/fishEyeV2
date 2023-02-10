@@ -1,4 +1,4 @@
-class Subject {
+export default class Subject {
     _observers;
 
     constructor() {

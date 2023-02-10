@@ -2,7 +2,8 @@ import MediaCardPhoto from './MediaCardPhoto.js';
 import MediaCardVideo from './MediaCardVideo.js';
 
 export default class MediaCardFactory {
-    constructor({ image, video, likes, title, photographerId }) {
+
+    constructor({ image, video, likes, title, photographerId }, Subject) {
         const media = {
             likes,
             title,
@@ -11,11 +12,11 @@ export default class MediaCardFactory {
         };
 
         if (image) {
-            return new MediaCardPhoto(media);
+            return new MediaCardPhoto(media, Subject);
         }
 
         if (video) {
-            return new MediaCardVideo(media);
+            return new MediaCardVideo(media, Subject);
         }
     }
 }

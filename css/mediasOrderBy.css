@@ -1,5 +1,6 @@
 .labelizeDiv{
     display: flex;
+    align-items: center;
     font-size: 24px;
 }
 
@@ -13,7 +14,7 @@
     width: min-content;
 }
 
-.mediasOrderBy {
+.mediasOrderBy, #mediasOrderByPlaceholder div select{
     background: #901C1C;
     padding: 1rem;
     color: white;
@@ -21,6 +22,7 @@
     border-radius: .5rem;
     position: relative;
     width: 170px;
+    font-size: 24px;
 }
 
 .mediasOrderBy:hover .mediasOrderBy__Options,

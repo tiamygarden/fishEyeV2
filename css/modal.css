@@ -33,7 +33,7 @@ input, textarea{
     padding: 0;
 }
 
-.modal img {
+.modal svg {
     cursor: pointer;
     position: absolute;
     right: 35px;
@@ -92,6 +92,7 @@ form input {
 }
 
 #likesModal {
+    background-color: #DB8876;
     position: fixed;
     right: 100px;
     bottom: 0;
@@ -109,7 +110,6 @@ form input {
     /*justify-content: space-between;*/
     width: 300px;
 }
-
 
 .likes__modal__price {
     margin-right: 0;

@@ -122,10 +122,17 @@
     display: none;
 }
 
-main .photograph_media_likes i{
+main .photograph_media_likes i {
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
 }
 
-.--liked{
+.likes__modal__likes i {
+    display: inline-flex;
+    align-items: center;
+}
+
+.photograph_media_likes.liked i {
     color: #DB8876;
 }

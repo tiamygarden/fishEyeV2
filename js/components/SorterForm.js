@@ -1,12 +1,14 @@
-import MediaCardFactory from './MediaCardFactory.js';
+import MediaCardFactory from '../factories/MediaCardFactory.js';
 
 export default class SorterForm {
     _medias;
     _mediasWrapper;
+    _Subject;
 
-    constructor(medias, mediasWrapper) {
+    constructor(medias, mediasWrapper, Subject) {
         this._medias = medias;
         this._mediasWrapper = mediasWrapper;
+        this._Subject = Subject;
 
         if (!window.sorter) {
             window.sorter = this;
@@ -17,7 +19,7 @@ export default class SorterForm {
         this._mediasWrapper.innerHTML = '';
 
         this.orderMedias(orderBy).forEach(media => {
-            this._mediasWrapper.appendChild(new MediaCardFactory(media).dom);
+            this._mediasWrapper.appendChild(new MediaCardFactory(media, this._Subject).dom);
         });
     }
 

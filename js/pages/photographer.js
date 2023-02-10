@@ -1,8 +1,11 @@
-import { Api } from '../api/Api.js';
-import MediaCardFactory from '../components/MediaCardFactory.js';
+import {Api} from '../api/Api.js';
+import MediaCardFactory from '../factories/MediaCardFactory.js';
 import PhotographerHeader from '../components/PhotographerHeader.js';
 import PhotographerRecap from '../components/PhotographerRecap.js';
 import SorterForm from '../components/SorterForm.js';
+import Subject from '../observers/likes/Subject.js';
+import Counter from '../observers/likes/Counter.js';
+import Lightbox from "../templates/LightboxModal.js";
 
 class App {
     _headerWrapper;
@@ -14,7 +17,13 @@ class App {
         this._headerWrapper = document.getElementById('photographHeaderSection');
         this._mediasWrapper = document.getElementById('photographMediasSection');
         this._recapWrapper = document.getElementById('likesModal');
-        this._mediasOrderBy= document.getElementById('mediasOrderByPlaceholder');
+        this._mediasOrderBy = document.getElementById('mediasOrderByPlaceholder');
+
+        //like pub/sub
+        this.Subject = new Subject()
+        this.Counter = new Counter()
+
+        this.Subject.subscribe(this.Counter)
     }
 
     async main() {
@@ -25,10 +34,10 @@ class App {
         // Insère le composant PhotograhperHeader dans son emplacement
         this._headerWrapper.appendChild(new PhotographerHeader(photographer).dom);
 
-        this._mediasOrderBy.appendChild(new SorterForm(medias, this._mediasWrapper).dom);
+        this._mediasOrderBy.appendChild(new SorterForm(medias, this._mediasWrapper, this.Subject).dom);
 
         medias.forEach(media => {
-            this._mediasWrapper.appendChild(new MediaCardFactory(media).dom);
+            this._mediasWrapper.appendChild(new MediaCardFactory(media, this.Subject).dom);
         });
 
         this._recapWrapper.appendChild(new PhotographerRecap(photographer, medias).dom);
@@ -36,3 +45,4 @@ class App {
 }
 
 new App().main();
+window.Lightbox = new Lightbox()
