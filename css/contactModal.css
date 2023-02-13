@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     display: none;
+    font-size: 35px;
 }
 
 #contactModal.visible {
@@ -15,7 +16,8 @@
 }
 
 #contactModal .modal {
-    max-width: 670px;
+    width: 669px;
+    height: 900px;
     background: #DB8876;
     border-radius: 5px;
     position: relative;
@@ -29,4 +31,41 @@
     background: transparent;
     width: 42px;
     height: 42px;
+}
+
+
+#contactModal form{
+    padding: 0 20px;
+}
+
+#contactModal form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal header{
+    flex-direction: column;
+    justify-items: start;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.modal header h2{
+    margin : 0;
+    font-weight: 400;
+}
+
+.modal header h3{
+    margin-top: 5px;
+    font-weight: 550;
+}
+
+#contactModal input, #contactModal textarea {
+    width: 100%;
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+#contactModal .contact_button{
+    margin-top: 30px;
 }
