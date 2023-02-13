@@ -95,6 +95,11 @@
     cursor: pointer;
 }
 
+a.lightbox {
+    display: flex;
+    border-radius: 15px;
+}
+
 .photograph_media_infos {
     display: flex;
     justify-content: space-between;

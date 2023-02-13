@@ -1,0 +1,32 @@
+#contactModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(196, 196, 196, 0.4);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#contactModal.visible {
+    display: flex;
+}
+
+#contactModal .modal {
+    max-width: 670px;
+    background: #DB8876;
+    border-radius: 5px;
+    position: relative;
+}
+
+#contactModal .close {
+    border: 0;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    width: 42px;
+    height: 42px;
+}

@@ -19,7 +19,12 @@ export default class PhotographerHeader {
                 </div>
             </div>
             <div class="photograph_column-center">
-                <button type="button" class="contact_me contact_button" onclick="displayModal()" aria-label="contactez-moi">Contactez-moi</button>
+                <button type="button" 
+                        class="contact_me contact_button" 
+                        onclick="displayModal('${this._photographer.name}')" 
+                        aria-label="contactez-moi">
+                    Contactez-moi
+                </button>
             </div>
             <div class="photograph_column-right" tabindex="0">  
                 <div class="photographer_portrait">

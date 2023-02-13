@@ -35,18 +35,18 @@ export default class MediaCardVideo {
 
     get dom() {
         this._wrapper.innerHTML = `
-            <video class="photograph_media_movie photograph_media_all lightbox" 
-                    src="${this._media.video}" 
-                    title="${this._media.title}" 
-                    aria-label="${this._media.title}" 
-                    data-src="${this._media.video}"
-                    onclick="window.Lightbox.open('${this._media.video}')"
-                    tabindex="0"
-            >
-                <source class="photograph_media_all" src="${this._media.video}" type="video/mp4" tabindex="0">
-            </video>
+            <a href="${this._media.video}" 
+            title="${this._media.title}"
+            class="lightbox"
+            onclick="window.Lightbox.open(event, this)">
+                <video class="photograph_media_movie photograph_media_all" 
+                        src="${this._media.video}"
+                        title="${this._media.title}">
+                    <source class="photograph_media_all" src="${this._media.video}" type="video/mp4">
+                </video>
+            </a>
             <div class="photograph_media_infos">
-                <div class="photograph_media_title" aria-label="${this._media.title}" tabindex="0">
+                <div class="photograph_media_title" aria-label="${this._media.title}">
                     <h3>${this._media.title}</h3>
                 </div>
                 <div class="photograph_media_likes" aria-label="like" tabindex="0">

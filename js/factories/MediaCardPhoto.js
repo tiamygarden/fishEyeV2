@@ -34,16 +34,15 @@ export default class MediaCardPhoto {
     get dom() {
         this._wrapper.innerHTML = `
             <div class="photograph_media_picture photograph_media_all">
-                <img 
-                    src="${this._media.image}" 
-                    alt="${this._media.title}" 
+                <a href="${this._media.image}" 
+                    title="${this._media.title}" 
                     class="lightbox" 
-                    data-src="${this._media.image}" 
-                    onclick="window.Lightbox.open('${this._media.image}')" 
-                    tabindex="0"/>
+                    onclick="window.Lightbox.open(event, this)">
+                    <img src="${this._media.image}" alt="${this._media.title}" />
+                </a>
             </div>
             <div class="photograph_media_infos">
-                <div class="photograph_media_title" aria-label="${this._media.title}" tabindex="0">
+                <div class="photograph_media_title" aria-label="${this._media.title}">
                     <h3>${this._media.title}</h3>
                 </div>
                 <div class="photograph_media_likes" aria-label="like" tabindex="0">

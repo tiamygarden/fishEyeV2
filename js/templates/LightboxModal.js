@@ -2,7 +2,7 @@ export default class {
     _wrapper;
     _items = [];
     _currentIndex = 0;
-    _controller = new AbortController();
+    _listenerController;
 
     constructor(media) {
         this.media = media;
@@ -14,10 +14,11 @@ export default class {
         this._wrapper = document.getElementById('lightboxWrapper');
     }
 
-    open(src) {
-        this._items = Array.from(document.getElementsByClassName('lightbox'))
+    open(event, el) {
+        event.preventDefault()
 
-        this._currentIndex = this._items.findIndex(item => item.dataset.src === src);
+        this._items = Array.from(document.getElementsByClassName('lightbox'))
+        this._currentIndex = this._items.findIndex(item => item.href === el.href);
         this.render()
         this._wrapper.classList.add('show')
         document.getElementsByTagName('body')[0].style.overflow = 'hidden'
@@ -38,8 +39,8 @@ export default class {
 
     createModal() {
         let html;
-        const src = this._items[this._currentIndex].src
-
+        const src = this._items[this._currentIndex].href
+        console.log(this._items[this._currentIndex])
         if (this.isVideo(src)) {
             html = `<video title="${this._items[this._currentIndex].title}" controls>
                         <source src="${src}" type="video/mp4">
@@ -62,7 +63,7 @@ export default class {
                     </button>
                 </div>
                     
-                <h3>${this.isVideo(src) ? this._items[this._currentIndex].title : this._items[this._currentIndex].alt}</h3>
+                <h3>${this._items[this._currentIndex].title}</h3>
                 <button class="close" aria-label="fermer" onclick="window.Lightbox.close()">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -90,8 +91,9 @@ export default class {
     }
 
     addListeners() {
-        this._keyupHandler = e => {
-            console.log(e)
+        this._listenerController = new AbortController()
+
+        window.addEventListener('keyup', e => {
             if (e.code === 'ArrowLeft') {
                 this.previous();
             }
@@ -101,11 +103,10 @@ export default class {
             if (e.code === 'Escape') {
                 this.close();
             }
-        };
-        window.addEventListener('keyup', this._keyupHandler);
+        }, {signal: this._listenerController.signal});
     }
 
     removeListeners() {
-        window.removeEventListener('keyup', this._keyupHandler);
+        this._listenerController.abort();
     }
 }
